@@ -1,0 +1,69 @@
+<div class="tea-slider position-relative">
+  <div class="tea-slider__image">
+    <img class="img-fluid" [src]="'../../../../assets/images/Tea1.png'" [alt]="'Фото чая'">
+  </div>
+</div>
+
+<h2 class="text-center fs-3 fw-bold my-5">Ответы на часто задаваемые вопросы</h2>
+
+<div #accordion class="col-lg-8 mx-auto">
+  <h3 class="bg-primary text-bg-primary rounded border border-primary py-4 pe-5 position-relative">
+    Собираете ли вы подарочные боксы?
+  </h3>
+
+  <div class="border border-0 pb-0">
+    <p>
+      Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
+    </p>
+  </div>
+
+  <h3 class="bg-primary text-bg-primary mt-3 rounded border border-primary py-4 pe-5 position-relative">
+    Сколько у вас разновидностей
+    чая?</h3>
+  <div class="border border-0 pb-0">
+    <p>
+      Ассортимент, представленный выше в коллекции чая, является актуальным на данный момент.
+    </p>
+  </div>
+
+  <h3 class="bg-primary text-bg-primary mt-3 rounded border border-primary py-4 pe-5 position-relative">В
+    какой срок осуществляется
+    доставка?</h3>
+  <div class="border border-0 pb-0">
+    <p>
+      С нашей стороны мы осуществляем доставку в пункт приёма в этот же день, а дальнейший срок доставки
+      зависит уже от вашего местоположения и частоты рейсов компаний-доставщиков.
+    </p>
+  </div>
+
+  <h3 class="bg-primary text-bg-primary mt-3 rounded border border-primary  py-4 pe-5 position-relative">У вас
+    обновляется
+    ассортимент?</h3>
+  <div class="border border-0 pb-0">
+    <p>
+      Да, мы регулярно пересматриваем полный ассортимент, учитывая потребности рынка. Вы можете оставить
+      вашу заявку на конкретный вид чая, мы это обработаем и выпустим новый товар при высокой активности с
+      портала.
+    </p>
+  </div>
+
+  <h3 class="bg-primary text-bg-primary mt-3 rounded border border-primary  py-4 pe-5 position-relative">
+    Какого
+    объема у вас пачки чая?</h3>
+  <div class="border border-0 pb-0">
+    <p>
+      Масса нетто каждой упаковки 500 грамм.
+    </p>
+  </div>
+</div>
+
+
+<ng-template #modalContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Посмотрите наши чайные коллекции!</h4>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.dismiss()">Останусь на главной</button>
+    <a routerLink="/products" class="btn btn-success" (click)="modal.close()">Смотреть</a>
+  </div>
+</ng-template>

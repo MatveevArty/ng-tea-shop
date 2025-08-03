@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button"
+            (click)="isMenuCollapsed = !isMenuCollapsed"
+            [attr.aria-expanded]="!isMenuCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a [routerLink]="''" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/products'" [routerLinkActive]="'active'" class="nav-link">Каталог</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Поиск чая">
+        <button class="btn btn-outline-primary px-4" type="submit">Найти</button>
+      </form>
+    </div>
+  </div>
+</nav>

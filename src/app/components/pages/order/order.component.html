@@ -1,0 +1,99 @@
+<h2 class="text-center fs-3 fw-bold my-5">Сделать заказ</h2>
+
+<form *ngIf="!backendResponse?.success" class="col-lg-6 row g-3 mb-4 mx-auto" [formGroup]="orderForm">
+  <div class="row">
+
+    <div class="col-md-4">
+      <label for="nameInput" class="form-label">Имя</label>
+      <input type="text" class="form-control form-input" id="nameInput" [formControlName]="'name'">
+
+      <div *ngIf="name?.invalid && (name?.touched || name?.dirty)">
+        <div class="invalid-feedback" *ngIf="name?.errors?.['required']">
+          Введите имя
+        </div>
+        <div class="invalid-feedback" *ngIf="name?.errors?.['pattern']">
+          Имя может содержать только буквы кириллицы
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="lastnameInput" class="form-label">Фамилия</label>
+      <input type="text" class="form-control form-input" id="lastnameInput" [formControlName]="'last_name'">
+
+      <div *ngIf="lastName?.invalid && (lastName?.touched || lastName?.dirty)">
+        <div class="invalid-feedback" *ngIf="lastName?.errors?.['required']">
+          Введите фамилию
+        </div>
+        <div class="invalid-feedback" *ngIf="lastName?.errors?.['pattern']">
+          Фамилия может содержать только буквы кириллицы
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="phoneInput" class="form-label">Телефон</label>
+      <input type="text" class="form-control form-input" id="phoneInput" [formControlName]="'phone'">
+
+      <div *ngIf="phone?.invalid && (phone?.touched || phone?.dirty)">
+        <div class="invalid-feedback" *ngIf="phone?.errors?.['required']">
+          Введите номер телефона
+        </div>
+        <div class="invalid-feedback" *ngIf="phone?.errors?.['pattern']">
+          Номер телефона должен содержать только 11 цифр, символ "+" опционален
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="countryInput" class="form-label">Страна</label>
+      <input type="text" class="form-control form-input" id="countryInput" [formControlName]="'country'">
+      <div class="invalid-feedback" *ngIf="country?.invalid
+      && (country?.touched || country?.dirty) && country?.errors?.['required']">
+          Введите страну
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="zipInput" class="form-label">Индекс</label>
+      <input type="text" class="form-control form-input" id="zipInput" [formControlName]="'zip'">
+
+      <div class="invalid-feedback" *ngIf="zip?.invalid
+      && (zip?.touched || zip?.dirty) && zip?.errors?.['required']">
+        Введите индекс
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <label for="productInput" class="form-label">Продукт</label>
+      <input type="text" class="form-control form-input" id="productInput" [formControlName]="'product'">
+    </div>
+
+    <div class="col-md-12">
+      <label for="addressInput" class="form-label">Адрес</label>
+      <input type="text" class="form-control form-input" id="addressInput" [formControlName]="'address'">
+
+      <div *ngIf="address?.invalid && (address?.touched || address?.dirty)">
+        <div class="invalid-feedback" *ngIf="address?.errors?.['required']">
+          Введите номер адрес
+        </div>
+        <div class="invalid-feedback" *ngIf="address?.errors?.['minlength']">
+          Адрес должен содержать минимум 10 символов
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Комментарий</label>
+      <input type="text" class="form-control form-input" [formControlName]="'comment'">
+    </div>
+
+    <div class="col-12 mt-3 text-center">
+      <button class="btn btn-primary px-5" (click)="sendOrderData()" [disabled]="orderForm.invalid || orderForm.untouched">Отправить</button>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="backendResponse?.success" id="approved" class="text-center col-lg-10 mx-auto p-4 bg-success-subtle border border-black rounded">
+  Спасибо за заказ. Мы свяжемся с вами в ближайшее время!
+</div>

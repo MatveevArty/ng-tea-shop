@@ -28,9 +28,19 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/jquery-ui/dist/jquery-ui.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "jquery",
+              "jquery-ui"
+            ]
           },
           "configurations": {
             "production": {

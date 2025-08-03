@@ -1,0 +1,11 @@
+<h1 class="text-center fs-3 fw-bold my-5">Наши чайные коллекции</h1>
+
+<div class="row row-gap-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1">
+  <app-product-card [product]="product" *ngFor="let product of this.products"></app-product-card>
+  <div class="w-100 text-center" *ngIf="loading">
+    <button class="btn btn-primary px-5 fs-6" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Loading...
+    </button>
+  </div>
+</div>
