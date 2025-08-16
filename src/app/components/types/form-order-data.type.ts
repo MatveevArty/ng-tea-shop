@@ -1,3 +1,6 @@
+/**
+ * Данные формы заказа
+ */
 export type FormOrderDataType = {
   name: string,
   last_name: string,

@@ -16,8 +16,8 @@
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Поиск чая">
-        <button class="btn btn-outline-primary px-4" type="submit">Найти</button>
+        <input class="form-control me-2" type="search" placeholder="Поиск чая" #inp>
+        <button class="btn btn-outline-primary px-4" type="button" (click)="findProducts(inp.value)">Найти</button>
       </form>
     </div>
   </div>

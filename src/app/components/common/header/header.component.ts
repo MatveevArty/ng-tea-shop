@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductService} from "../../../services/product.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -13,9 +15,24 @@ export class HeaderComponent implements OnInit {
   isMenuCollapsed = true;
 
 
-  constructor() { }
+  constructor(private readonly productService: ProductService,
+              private readonly router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  /**
+   * Найти продукты по названию
+   * @param searchValue название продукта
+   */
+  public findProducts(searchValue: string): void {
+    this.productService.getProducts(searchValue).subscribe(() => {
+      if (searchValue) {
+        this.router.navigate(['/products'], { queryParams: { search: searchValue}});
+      } else {
+        this.router.navigate(['/products']);
+      }
+    })
   }
 
 }

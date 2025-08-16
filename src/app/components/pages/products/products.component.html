@@ -8,4 +8,7 @@
       Loading...
     </button>
   </div>
+  <div class="no-result text-center w-100" *ngIf="products.length === 0 && !loading">
+    По вашему запросу товары не найдены
+  </div>
 </div>

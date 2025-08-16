@@ -12,10 +12,19 @@ import {BackendResponseType} from "../../types/backend-response.type";
 })
 export class OrderComponent implements OnInit {
 
+  /**
+   * Ответ с бекенда по созданию заказа
+   */
   public backendResponse: BackendResponseType | null = null;
 
+  /**
+   * Текущий продукт в заказе
+   */
   public currentProduct: ProductType | null = null;
 
+  /**
+   * Форма с данными заказа и их валидацией
+   */
   public orderForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.pattern('^[а-яА-Я]+$')]],
     last_name: ['', [Validators.required, Validators.pattern('^[а-яА-Я]+$')]],
@@ -27,26 +36,44 @@ export class OrderComponent implements OnInit {
     comment: ['']
   });
 
+  /**
+   * Геттер для поля Имя
+   */
   get name() {
     return this.orderForm.get('name');
   }
 
+  /**
+   * Геттер для поля Фамилия
+   */
   get lastName() {
     return this.orderForm.get('last_name');
   }
 
+  /**
+   * Геттер для поля Номер телефона
+   */
   get phone() {
     return this.orderForm.get('phone');
   }
 
+  /**
+   * Геттер для поля Страна
+   */
   get country() {
     return this.orderForm.get('country');
   }
 
+  /**
+   * Геттер для поля Индекс
+   */
   get zip() {
     return this.orderForm.get('zip');
   }
 
+  /**
+   * Геттер для поля Адрес
+   */
   get address() {
     return this.orderForm.get('address');
   }
@@ -76,7 +103,9 @@ export class OrderComponent implements OnInit {
     })
   }
 
-
+  /**
+   * Отправки запроса на создание заказа с данными формы
+   */
   sendOrderData() {
     if (this.orderForm.invalid) return;
 

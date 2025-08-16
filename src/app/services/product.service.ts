@@ -7,19 +7,23 @@ import {FormOrderDataType} from "../components/types/form-order-data.type";
 @Injectable()
 export class ProductService {
 
-  /**
-   * Продукты
-   */
-  public products: ProductType[] = [];
-
   constructor(private http: HttpClient) {
   }
 
   /**
-   * GET запрос на получение всех продуктов
+   * GET запрос на получение всех продуктов или по названию
+   * @param searchValue поисковый запрос
    */
-  public getProducts(): Observable<ProductType[]> {
-    return this.http.get<ProductType[]>('https://testologia.ru/tea');
+  public getProducts(searchValue?: string): Observable<ProductType[]> {
+    if (searchValue) {
+      return this.http.get<ProductType[]>('https://testologia.ru/tea', {
+        params: {
+          search: searchValue ,
+        }
+      });
+    } else {
+      return this.http.get<ProductType[]>('https://testologia.ru/tea');
+    }
   }
 
   /**
@@ -31,8 +35,8 @@ export class ProductService {
   }
 
   /**
-   *
-   * @param data
+   * POST запрос на создание заказа с отправкой данных
+   * @param data данные заказа из формы
    */
   public createOrder(data: FormOrderDataType) {
     return this.http.post<{ success: boolean, message?: string }>('https://testologia.ru/order-tea', data)
