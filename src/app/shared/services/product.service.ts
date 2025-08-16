@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {ProductType} from "../components/types/product.type";
-import {FormOrderDataType} from "../components/types/form-order-data.type";
+import {ProductType} from "../../../types/product.type";
+import {FormOrderDataType} from "../../../types/form-order-data.type";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductService {
 
   constructor(private http: HttpClient) {

@@ -7,7 +7,7 @@
       <p class="card-text">{{ product.price | currency: '₽':'code':'.0' }}</p>
       <p class="card-text">{{ product.description | textLength: 170 }}</p>
       <div class="mt-auto text-center">
-        <a [routerLink]="['/product', product.id]" class="btn btn-primary px-5">Подробнее</a>
+        <a [routerLink]="['/products', product.id]" class="btn btn-primary px-5">Подробнее</a>
       </div>
     </div>
   </div>
